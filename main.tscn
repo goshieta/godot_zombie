@@ -1,0 +1,60 @@
+[gd_scene load_steps=5 format=3 uid="uid://c7vbu4x5lpvrg"]
+
+[ext_resource type="Script" path="res://main.gd" id="1_41thc"]
+[ext_resource type="Texture2D" uid="uid://dmcxslu238ek4" path="res://assets/img/ground.png" id="1_85tfj"]
+[ext_resource type="PackedScene" uid="uid://5gajv8u2f7hc" path="res://src/Player.tscn" id="2_r33oi"]
+[ext_resource type="PackedScene" uid="uid://dcy5n7e1m5134" path="res://src/WorldEdge.tscn" id="4_5jkmb"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_41thc")
+
+[node name="Player" parent="." instance=ExtResource("2_r33oi")]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="ParallaxLayer" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(1280, 960)
+
+[node name="Ground" type="Sprite2D" parent="ParallaxBackground/ParallaxLayer"]
+texture = ExtResource("1_85tfj")
+centered = false
+
+[node name="WorldEdgeBox" type="Node2D" parent="."]
+
+[node name="WorldEdge" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-1500, -500)
+
+[node name="WorldEdge2" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-1500, 500)
+
+[node name="WorldEdge3" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-500, -1500)
+
+[node name="WorldEdge4" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(500, -1500)
+
+[node name="WorldEdge5" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(1500, -500)
+
+[node name="WorldEdge6" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(1500, 500)
+
+[node name="WorldEdge7" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(500, 1500)
+
+[node name="WorldEdge8" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-500, 1500)
+
+[node name="WorldEdge9" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-1500, 1500)
+
+[node name="WorldEdge10" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(-1500, -1500)
+
+[node name="WorldEdge11" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(1500, 1500)
+
+[node name="WorldEdge12" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
+position = Vector2(1500, -1500)
