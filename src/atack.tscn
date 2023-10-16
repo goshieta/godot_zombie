@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://cgonp6lbhuqin"]
+
+[ext_resource type="Texture2D" uid="uid://bm0v3hkdxf7wj" path="res://assets/img/attack.png" id="1_h6s3d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_3734w"]
+radius = 13.0
+
+[node name="atack" type="Area2D"]
+
+[node name="Attack" type="Sprite2D" parent="."]
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("1_h6s3d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_3734w")
