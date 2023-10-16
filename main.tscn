@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=3 uid="uid://c7vbu4x5lpvrg"]
+[gd_scene load_steps=6 format=3 uid="uid://c7vbu4x5lpvrg"]
 
 [ext_resource type="Script" path="res://main.gd" id="1_41thc"]
 [ext_resource type="Texture2D" uid="uid://dmcxslu238ek4" path="res://assets/img/ground.png" id="1_85tfj"]
 [ext_resource type="PackedScene" uid="uid://5gajv8u2f7hc" path="res://src/Player.tscn" id="2_r33oi"]
 [ext_resource type="PackedScene" uid="uid://dcy5n7e1m5134" path="res://src/WorldEdge.tscn" id="4_5jkmb"]
+[ext_resource type="Script" path="res://EnemyBox.gd" id="5_o8kuc"]
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_41thc")
@@ -58,3 +59,6 @@ position = Vector2(1500, 1500)
 
 [node name="WorldEdge12" parent="WorldEdgeBox" instance=ExtResource("4_5jkmb")]
 position = Vector2(1500, -1500)
+
+[node name="EnemyBox" type="Node2D" parent="."]
+script = ExtResource("5_o8kuc")
