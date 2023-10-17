@@ -9,6 +9,10 @@
 [node name="Main" type="Node2D"]
 script = ExtResource("1_41thc")
 
+[node name="GrassBox" type="Node2D" parent="."]
+
+[node name="AttackBox" type="Node2D" parent="."]
+
 [node name="Player" parent="." instance=ExtResource("2_r33oi")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -62,5 +66,3 @@ position = Vector2(1500, -1500)
 
 [node name="EnemyBox" type="Node2D" parent="."]
 script = ExtResource("5_o8kuc")
-
-[node name="AttackBox" type="Node2D" parent="."]

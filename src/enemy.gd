@@ -2,6 +2,8 @@ extends CharacterBody2D
 
 @onready var _enemy_animation=$AnimatedSprite2D
 
+signal enemy_attack(first_position:Vector2,dir_vector:Vector2)
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	_enemy_animation.play()
@@ -21,10 +23,16 @@ func _process(delta):
 		velocity=_base_vector.normalized()*ENEMY_SPEED
 	elif sqrt(_base_vector.x**2+_base_vector.y**2)<400:
 		#近すぎる
-		print("leave")
 		velocity=-(_base_vector.normalized()*ENEMY_SPEED)
 	else:
 		#ちょうどいい位置
 		velocity=Vector2(0,0)
+		var rnd=RandomNumberGenerator.new()
+		if rnd.randi_range(0,100)==0: _attack()
 	move_and_slide()
+	pass
+
+func _attack():
+	var dir_vec=(_player.position-position).normalized()
+	enemy_attack.emit(position,dir_vec)
 	pass

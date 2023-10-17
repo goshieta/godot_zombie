@@ -5,6 +5,7 @@ const WORLD_SIZE=Vector2(2000,2000)
 
 @onready var _camera=$Camera2D
 @onready var _player=$Player
+@onready var _grass_box=$GrassBox
 
 const SPEED=2
 
@@ -21,11 +22,11 @@ func _ready():
 			rnd.randi_range(-WORLD_SIZE.x/2,WORLD_SIZE.x/2),
 			rnd.randi_range(-WORLD_SIZE.y/2,WORLD_SIZE.y/2)
 		)
-		add_child(grass)
-
+		_grass_box.add_child(grass)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
+	
 	const MOVE_SPEED=200
 	
 	#プレイヤー移動
@@ -43,4 +44,13 @@ func _process(delta):
 		_player.move_and_slide()
 	
 	_camera.position=_player.position
+	
+
+func _input(event):
+	if event is InputEventMouseButton and event.pressed:
+		var mouse_position=get_viewport().get_mouse_position()
+		var viewport_rect=get_viewport().get_visible_rect()
+		var player_position=Vector2(viewport_rect.size.x/2,viewport_rect.size.y/2)
+		var target_dir_vector=(mouse_position-player_position).normalized()
+		print(target_dir_vector)
 		
